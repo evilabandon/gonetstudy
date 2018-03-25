@@ -21,6 +21,7 @@ func main() {
 	}
 
 	conn, err := net.DialTCP("tcp", nil, tcpAddr)
+	defer conn.Close()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Fatal error: %s", err.Error())
 		os.Exit(1)
